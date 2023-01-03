@@ -1,0 +1,15 @@
+[websiteProperty]AUTOMATON::> websiteProperty() STATE::>loggedOut
+Bad login event. Login status: false
+[websiteProperty]MOVED ON METHODCALL: String main.Runner.badLogin() TO STATE::> loggedOut
+[websiteProperty]AUTOMATON::> websiteProperty() STATE::>loggedOut
+Login status: true
+[websiteProperty]MOVED ON METHODCALL: String main.Runner.goodLogin() TO STATE::> loggedIn
+[websiteProperty]AUTOMATON::> websiteProperty() STATE::>loggedIn
+User viewed My Alerts event: true
+[websiteProperty]MOVED ON METHODCALL: String main.Runner.viewMyAlerts() TO STATE::> loggedIn
+[websiteProperty]AUTOMATON::> websiteProperty() STATE::>loggedIn
+User viewed My Alerts event: true
+[websiteProperty]MOVED ON METHODCALL: String main.Runner.viewMyAlerts() TO STATE::> loggedIn
+[websiteProperty]AUTOMATON::> websiteProperty() STATE::>loggedIn
+User has logged out
+[websiteProperty]MOVED ON METHODCALL: String main.Runner.logOut() TO STATE::> loggedOut

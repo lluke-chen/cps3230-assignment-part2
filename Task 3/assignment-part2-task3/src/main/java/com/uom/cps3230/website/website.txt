@@ -1,0 +1,12 @@
+States:
+- loggedOut *(starting state)
+- loggedIn
+
+Variables:
+- loggedIn (bool) = false
+- viewingAlerts (bool) = false
+
+Transitions:
+- loggedOut -> loggedIn \ login \ loggedIn = true;
+- loggedIn -> loggedIn \ viewAlerts \ viewingAlerts = true;
+- loggedIn -> loggedOut \ logOut \ loggedIn = false; viewingAlerts = false;

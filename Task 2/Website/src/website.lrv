@@ -1,0 +1,33 @@
+GLOBAL {
+	VARIABLES {
+		boolean userViewedAlerts = false;
+		boolean loggedIn = false;
+	}
+	
+	EVENTS{
+		badLogin() = {*.badLogin()}
+		goodLogin() = {*.goodLogin()}
+		logOut() = {*.logOut()}
+		viewMyAlerts() = {*.viewMyAlerts()}
+	}
+	
+	PROPERTY websiteProperty{
+		STATES{
+			NORMAL{
+				loggedIn
+				userViewedAlerts
+			}
+			STARTING{
+				loggedOut
+			}
+		}
+		
+		TRANSITIONS{
+			loggedOut -> loggedIn [goodLogin\loggedIn==false\loggedIn=true;userViewedAlerts=true;System.out.println("Login status: "+loggedIn);]
+			loggedIn -> loggedIn [viewMyAlerts\loggedIn==true\userViewedAlerts=true;System.out.println("User viewed My Alerts event: "+userViewedAlerts);]
+
+			loggedIn -> loggedOut [logOut\loggedIn==true\loggedIn=false;userViewedAlerts=false;System.out.println("User has logged out");]
+			loggedOut -> loggedOut [badLogin\loggedIn==false\loggedIn=false;userViewedAlerts=false;System.out.println("Bad login event. Login status: "+loggedIn);]
+		}
+	}
+}

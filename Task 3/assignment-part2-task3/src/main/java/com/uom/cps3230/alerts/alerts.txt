@@ -1,0 +1,13 @@
+States:
+- alertsEmpty *(starting state)
+- alertsNotEmpty
+
+Variables:
+- alertsEmpty (bool) = true
+
+Transitions:
+- alertsEmpty -> alertsNotEmpty \ createAlert \ alertsEmpty = false;
+- alertsNotEmpty -> alertsNotEmpty \ createAlert \ alertsEmpty = false;
+
+- alertsNotEmpty -> alertsEmpty \ deleteAlerts \ alertsEmpty = true;
+- alertsNotEmpty -> alertsNotEmpty \ deleteAlerts \ alertsEmpty = true;

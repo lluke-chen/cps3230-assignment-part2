@@ -1,0 +1,10 @@
+digraph _logic_alertsProperty {
+rankdir=LR;
+node [shape = circle]; alertsNotEmpty alertsEmpty;
+node [shape = point]; _s_s;
+_s_s -> alertsEmpty;
+alertsNotEmpty -> alertsNotEmpty [ label = "(1) createAlert\\\\alertsCount ++ ; System . out . println ( \" Alert created event. Alerts count:  \" + alertsCount ) ; "];
+alertsNotEmpty -> alertsEmpty [ label = "(2) deleteAlerts\\\\alertsCount = 0 ; System . out . println ( \" Deleted alerts event. Alerts count:  \" + alertsCount ) ; "];
+alertsEmpty -> alertsNotEmpty [ label = "(1) createAlert\\\\alertsCount ++ ; System . out . println ( \" Alert created event. Alerts count:  \" + alertsCount ) ; "];
+alertsEmpty -> alertsEmpty [ label = "(2) deleteAlerts\\\\alertsCount = 0 ; System . out . println ( \" Deleted alerts event. Alerts count:  \" + alertsCount ) ; "];
+}

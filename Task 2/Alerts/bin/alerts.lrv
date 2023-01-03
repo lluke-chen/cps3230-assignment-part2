@@ -1,0 +1,28 @@
+GLOBAL {
+	VARIABLES {
+		int alertsCount = 0;
+	}
+	
+	EVENTS{
+		createAlert() = {*.createAlert()}
+		deleteAlerts() = {*.deleteAlerts()}
+	} 
+	
+	PROPERTY alertsProperty{
+		STATES{
+			NORMAL{
+				alertsNotEmpty
+			}
+			STARTING{
+				alertsEmpty
+			} 
+		}
+		
+		TRANSITIONS{
+			alertsEmpty -> alertsNotEmpty [createAlert\\alertsCount++;System.out.println("Alert created event. Alerts count: "+alertsCount);]
+			alertsNotEmpty -> alertsNotEmpty [createAlert\\alertsCount++;System.out.println("Alert created event. Alerts count: "+alertsCount);]
+			alertsNotEmpty -> alertsEmpty [deleteAlerts\\alertsCount=0;System.out.println("Deleted alerts event. Alerts count: "+alertsCount);]
+			alertsEmpty -> alertsEmpty [deleteAlerts\\alertsCount=0;System.out.println("Deleted alerts event. Alerts count: "+alertsCount);] 
+		}
+	}
+}

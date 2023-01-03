@@ -1,0 +1,10 @@
+digraph _logic_websiteProperty {
+rankdir=LR;
+node [shape = circle]; loggedIn userViewedAlerts loggedOut;
+node [shape = point]; _s_s;
+_s_s -> loggedOut;
+loggedIn -> loggedIn [ label = "(1) viewMyAlerts\\loggedIn == true \\userViewedAlerts = true ; System . out . println ( \" User viewed My Alerts event:  \" + userViewedAlerts ) ; "];
+loggedIn -> loggedOut [ label = "(2) logOut\\loggedIn == true \\loggedIn = false ; userViewedAlerts = false ; System . out . println ( \" User has logged out \" ) ; "];
+loggedOut -> loggedIn [ label = "(1) goodLogin\\loggedIn == false \\loggedIn = true ; userViewedAlerts = true ; System . out . println ( \" Login status:  \" + loggedIn ) ; "];
+loggedOut -> loggedOut [ label = "(2) badLogin\\loggedIn == false \\loggedIn = false ; userViewedAlerts = false ; System . out . println ( \" Bad login event. Login status:  \" + loggedIn ) ; "];
+}
